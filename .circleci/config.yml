@@ -4,32 +4,15 @@ jobs:
   build:
     docker:
       - image: cimg/node:lts
+    environment:
+      JOB_HOME:   src
+      COV_STREAM: "${CIRCLE_PROJECT_REPONAME}_${JOB_HOME}_${CIRCLE_BRANCH}"
     steps:
       - run:
           command: |
-            echo "CI is '$CI'" 
-            echo "CIRCLE_USERNAME is '$CIRCLE_USERNAME'" 
-            echo "CIRCLE_BRANCH is '$CIRCLE_BRANCH'" 
-  deploy:
-    docker:
-      - image: cimg/node:lts
-    steps:
-      - run: 
-          name: Deployment
-          command: |
-            echo "CI is '$CI'" 
-            echo "CIRCLE_USERNAME is '$CIRCLE_USERNAME'" 
-            echo "CIRCLE_BRANCH is '$CIRCLE_BRANCH'" 
+            echo ${COV_STREAM}
 
 workflows:
-  build-hold-deploy:
+  test_environment_key:
     jobs:
-      - build
-      - hold: # hold というジョブ名は固定で、メインの設定（上部の jobs 部分）に入れないようにしてください。
-          type: approval # 承認ジョブを表示。
-          requires:
-            - build
-      - deploy:
-          requires:
-            - hold
-            
+      - build            
