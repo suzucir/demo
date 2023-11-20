@@ -11,7 +11,9 @@ jobs:
     steps:
       - run:
           command: |
+            echo ${CIRCLE_PROJECT_REPONAME}
             echo ${COV_STREAM}
+         
 
 workflows:
   test_environment_key:
