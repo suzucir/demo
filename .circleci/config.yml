@@ -6,9 +6,7 @@ jobs:
       - image: cimg/node:lts
     environment:
       JOB_HOME:   src
-      CIRCLE_PROJECT_REPONAME: ${CIRCLE_PROJECT_REPONAME}
-      JOB_HOME: ${JOB_HOME}
-      CIRCLE_BRANCH: ${CIRCLE_BRANCH}
+      CIRCLE_PROJECT_REPONAME: "${CIRCLE_PROJECT_REPONAME}"
       COV_STREAM: "${CIRCLE_PROJECT_REPONAME}_${JOB_HOME}_${CIRCLE_BRANCH}"
     steps:
       - run:
