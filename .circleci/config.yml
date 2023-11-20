@@ -10,6 +10,14 @@ jobs:
           name: Creating Dummy Artifacts
           command: |
             echo "https://circleci.com/" > /tmp/link.html;
+            echo "https://circleci.com/" > /tmp/link.txt;
+            echo "https://circleci.com/" > /tmp/link.md;
 
+      - store_artifacts:
+          path: /tmp/link.html
+
+      - store_artifacts:
+          path: /tmp/link.md
+      
       - store_artifacts:
           path: /tmp/link.txt
