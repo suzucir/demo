@@ -11,7 +11,7 @@ jobs:
           command: |
             echo "https://circleci.com/" > /tmp/link.html;
             echo "https://circleci.com/" > /tmp/link.txt;
-            echo "https://circleci.com/" > /tmp/link.md;
+            echo "[CircleCI Top](https://circleci.com/)" > /tmp/link.md;
 
       - store_artifacts:
           path: /tmp/link.html
