@@ -9,7 +9,7 @@ jobs:
       - run:
           name: Creating Dummy Artifacts
           command: |
-            echo "https://circleci.com/" > /tmp/link.txt;
+            echo "https://circleci.com/" > /tmp/link.html;
 
       - store_artifacts:
           path: /tmp/link.txt
