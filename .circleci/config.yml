@@ -29,11 +29,4 @@ workflows:
   build-hold-deploy:
     jobs:
       - build
-      - hold: # hold というジョブ名は固定で、メインの設定（上部の jobs 部分）に入れないようにしてください。
-          type: approval # 承認ジョブを表示。
-          requires:
-            - build
-      - deploy:
-          requires:
-            - hold
             
