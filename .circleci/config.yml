@@ -6,7 +6,8 @@ orbs:
 jobs:
   build:
     docker:
-      - image: cimg/node:lts
+      # - image: cimg/node:lts
+      - image: node:latest
     steps:
       - run:
           command: |
